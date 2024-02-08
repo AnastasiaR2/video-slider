@@ -24,6 +24,8 @@ class ImageSlider extends BaseSlider {
   constructor(selector) {
     super(selector, {
       modules: [Navigation],
+      slidesPerView: 4,
+      slidesPerGroup: 4,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
