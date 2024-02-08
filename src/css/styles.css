@@ -11,3 +11,9 @@ body {
   place-items: center;
   min-height: 100vh;
 }
+
+.swiper {
+  width: 600px;
+  height: 300px;
+  background-color: antiquewhite;
+}
