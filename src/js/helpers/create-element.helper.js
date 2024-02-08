@@ -1,6 +1,6 @@
 const createElement = ({
-  tagName, 
-  className, 
+  tagName,
+  className,
   attributes = {},
   content = '',
 }) => {
@@ -11,13 +11,15 @@ const createElement = ({
     element.classList.add(...classNames);
   }
 
-  Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+  Object.entries(attributes).forEach(([key, value]) =>
+    element.setAttribute(key, value),
+  );
 
   if (content) {
-      element.innerHTML = content;
+    element.innerHTML = content;
   }
 
-    return element;
+  return element;
 };
 
 export { createElement };
