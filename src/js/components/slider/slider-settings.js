@@ -11,7 +11,7 @@ class BaseSlider {
     this.options = options;
   }
 
-  init() {
+  initialize() {
     return new Swiper(this.selector, {
       loop: true,
       simulateTouch: false,

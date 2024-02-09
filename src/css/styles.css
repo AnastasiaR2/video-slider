@@ -13,10 +13,52 @@ body {
   min-height: 100vh;
 }
 
-.swiper {
+.image-slider {
   width: 800px;
+  /* height: 300px; */
+}
+
+.video-slider {
+  width: 800px;
+}
+
+.swiper-slide > iframe {
+  width: 800px;
+  height: 90vh;
 }
 
 .swiper-slide > img {
   max-width: 100%;
 }
+
+/* .swiper-slide:nth-child(1) {
+  background-color: red;
+}
+
+.swiper-slide:nth-child(2) {
+  background-color: blue;
+}
+
+.swiper-slide:nth-child(3) {
+  background-color: violet;
+}
+
+.swiper-slide:nth-child(4) {
+  background-color: yellow;
+}
+
+.swiper-slide:nth-child(5) {
+  background-color: orange;
+}
+
+.swiper-slide:nth-child(6) {
+  background-color: brown;
+}
+
+.swiper-slide:nth-child(7) {
+  background-color: green;
+}
+
+.swiper-slide:nth-child(8) {
+  background-color: rebeccapurple;
+} */
