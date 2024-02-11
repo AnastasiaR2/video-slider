@@ -6,7 +6,10 @@ import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
 import { showModal } from './components/modal.js';
-import { createSlider } from './components/slider/slider.js';
+import {
+  createImageSlider,
+  createVideoSlider,
+} from './components/slider/slider.js';
 import { fetchVideo } from './services/api.js';
 
 const rootElement = document.querySelector('#root');
@@ -14,9 +17,10 @@ const rootElement = document.querySelector('#root');
 const renderApp = async () => {
   try {
     const videoData = await fetchVideo(824804225);
-    const sliderElement = createSlider(videoData);
+    const imageSliderElement = createImageSlider(videoData);
+    const videoSliderElement = createVideoSlider(videoData);
 
-    rootElement.appendChild(sliderElement);
+    rootElement.appendChild(imageSliderElement);
 
     const imageSlider = new Swiper('.image-slider', {
       modules: [Navigation],
@@ -27,22 +31,19 @@ const renderApp = async () => {
       },
     });
 
-    console.log(imageSlider);
-
-    // imageSlider.on('click', () => {
-    //   const clickedSlideIndex = imageSlider.clickedIndex;
-    //   console.log('Clicked slide index:', clickedSlideIndex);
-    // });
-
-    // const videoSlider = new Swiper('.video-slider', {
-    //   modules: [Pagination],
-    //   pagination: {
-    //     clickable: true,
-    //     el: '.swiper-pagination',
-    //   },
-    // });
-    // console.log(videoSlider);
-    showModal('This is modal');
+    imageSlider.on('click', () => {
+      const clickedSlideIndex = imageSlider.clickedIndex;
+      console.log('Clicked slide index:', clickedSlideIndex);
+      showModal(videoSliderElement);
+      new Swiper('.video-slider', {
+        initialSlide: clickedSlideIndex,
+        modules: [Pagination],
+        pagination: {
+          clickable: true,
+          el: '.swiper-pagination',
+        },
+      });
+    });
   } catch (error) {
     rootElement.innerText = 'Failed to load app';
     throw error;

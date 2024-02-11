@@ -1,13 +1,14 @@
 import { createElement } from '../helpers/create-element.helper.js';
 
+const modal = document.querySelector('#modal');
+
 const hideModal = () => {
-  const modal = document.querySelector('#modal');
-  modal.remove();
-  // modal.innerHTML = '';
+  modal.classList.remove('modal-opened');
+  modal.classList.add('modal-closed');
+  modal.innerHTML = '';
 };
 
-const showModal = (bodyElement) => {
-  const modal = document.querySelector('#modal');
+const createModal = (bodyElement) => {
   const modalContainer = createElement({
     tagName: 'div',
     className: 'modal-container',
@@ -21,14 +22,21 @@ const showModal = (bodyElement) => {
   closeButton.addEventListener('click', hideModal);
 
   window.addEventListener('click', (event) => {
-    if (event.target !== modalContainer) {
+    if (event.target === modal) {
       hideModal();
     }
   });
 
-  console.log(modal);
-
   modalContainer.append(closeButton, bodyElement);
+
+  return modalContainer;
+};
+
+const showModal = (bodyElement) => {
+  const modalContainer = createModal(bodyElement);
+  modal.classList.remove('modal-closed');
+  modal.classList.add('modal-opened');
+
   modal.appendChild(modalContainer);
 };
 
