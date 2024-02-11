@@ -1,71 +1,32 @@
-import { createElement } from '../../helpers/create-element.helper.js';
 import { createSliderElement } from './helpers/create-slider-element.helper.js';
 
-const createImageSlider = (videoData) => {
-  const { pictures } = videoData;
-  const imageSlides = [];
-  for (let i = 0; i < 8; i++) {
-    imageSlides.push(`<img src="${pictures.base_link}">`);
-  }
+const createSlider = ({ selector, slides, options }) => {
+  return createSliderElement({
+    selector,
+    slides,
+    ...options,
+  });
+};
 
-  const imageSliderElement = createSliderElement({
+const createImageSlider = ({ pictures }) => {
+  const imageSlides = Array.from(
+    { length: 8 },
+    () => `<img src="${pictures.base_link}">`,
+  );
+  return createSlider({
     selector: 'image-slider',
     slides: imageSlides,
-    hasNavigation: true,
+    options: { hasNavigation: true },
   });
-
-  return imageSliderElement;
 };
 
-const createVideoSlider = (videoData) => {
-  const { embed } = videoData;
-
-  const videoSlides = [];
-  for (let i = 0; i < 8; i++) {
-    videoSlides.push(`${embed.html}`);
-  }
-
-  const videoSliderElement = createSliderElement({
+const createVideoSlider = ({ embed }) => {
+  const videoSlides = Array.from({ length: 8 }, () => embed.html);
+  return createSlider({
     selector: 'video-slider',
     slides: videoSlides,
-    hasPagination: true,
+    options: { hasPagination: true },
   });
-
-  return videoSliderElement;
 };
-
-// const createSlider = (videoData) => {
-//   const { pictures, embed } = videoData;
-//   const imageSlides = [];
-//   for (let i = 0; i < 8; i++) {
-//     imageSlides.push(`<img src="${pictures.base_link}">`);
-//   }
-
-//   const videoSlides = [];
-//   for (let i = 0; i < 8; i++) {
-//     videoSlides.push(`${embed.html}`);
-//   }
-
-//   const imageSliderElement = createSliderElement({
-//     selector: 'image-slider',
-//     slides: imageSlides,
-//     hasNavigation: true,
-//   });
-
-//   const videoSliderElement = createSliderElement({
-//     selector: 'video-slider',
-//     slides: videoSlides,
-//     hasPagination: true,
-//   });
-
-//   const sliderElement = createElement({
-//     tagName: 'main',
-//   });
-
-//   sliderElement.appendChild(imageSliderElement);
-//   sliderElement.appendChild(videoSliderElement);
-
-//   return sliderElement;
-// };
 
 export { createImageSlider, createVideoSlider };

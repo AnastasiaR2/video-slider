@@ -21,8 +21,8 @@ const createModal = (bodyElement) => {
 
   closeButton.addEventListener('click', hideModal);
 
-  window.addEventListener('click', (event) => {
-    if (event.target === modal) {
+  document.addEventListener('click', (event) => {
+    if (event.target === modalContainer) {
       hideModal();
     }
   });

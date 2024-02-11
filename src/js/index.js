@@ -33,7 +33,6 @@ const renderApp = async () => {
 
     imageSlider.on('click', () => {
       const clickedSlideIndex = imageSlider.clickedIndex;
-      console.log('Clicked slide index:', clickedSlideIndex);
       showModal(videoSliderElement);
       new Swiper('.video-slider', {
         initialSlide: clickedSlideIndex,
