@@ -1,7 +1,7 @@
 import { API_TOKEN, BASE_URL } from '../config.js';
 
 const fetchVideo = async (videoId) => {
-  const url = `${BASE_URL}${videoId}`;
+  const url = `${BASE_URL}${videoId}?autoplay=1&muted=1`;
   const headers = {
     Authorization: `Bearer ${API_TOKEN}`,
   };
