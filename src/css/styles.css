@@ -7,8 +7,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 body {
@@ -20,8 +20,8 @@ body {
 
 button {
   cursor: pointer;
-  outline: none;
   border: none;
+  outline: none;
 }
 
 .image-slider {
@@ -43,10 +43,10 @@ button {
 
 .modal-opened {
   position: fixed;
+  z-index: 10;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 10;
+  background-color: rgb(0 0 0 / 90%);
 }
 
 .modal-container {
@@ -54,11 +54,11 @@ button {
 }
 
 .modal-container .close-btn {
-  background-color: transparent;
-  color: #fff;
   position: absolute;
   top: 20px;
   right: 40px;
+  color: #fff;
+  background-color: transparent;
 }
 
 .swiper-pagination .swiper-pagination-bullet {
@@ -67,18 +67,18 @@ button {
 
 .swiper .swiper-button-next,
 .swiper .swiper-button-prev {
-  background: rgb(59, 59, 59, 0.5);
   width: 25px;
   height: 30px;
   margin-top: -15px;
+  background: rgb(59 59 59 / 50%);
 }
 
 .swiper .swiper-button-next {
   margin-right: -10px;
-  border-radius: 3px 0px 0px 3px;
+  border-radius: 3px 0 0 3px;
 }
 
 .swiper .swiper-button-prev {
   margin-left: -10px;
-  border-radius: 0px 3px 3px 0px;
+  border-radius: 0 3px 3px 0;
 }
