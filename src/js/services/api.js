@@ -1,17 +1,18 @@
-import { API_TOKEN, BASE_URL } from '/config.js';
+import { API_TOKEN, BASE_URL } from '../config.js';
 
 const fetchVideo = async (videoId) => {
-  const url = `${BASE_URL}${videoId}`;
+  const url = `${BASE_URL}${videoId}?autoplay=1&muted=1`;
   const headers = {
     Authorization: `Bearer ${API_TOKEN}`,
   };
-  try {
-      const response = await fetch(url, { headers });
-      const responseData = await response.json();
-      return responseData;
-  } catch (error) {
-      throw new Error(error.message);
+  const response = await fetch(url, { headers });
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch video: ${response.status} ${response.statusText}`,
+    );
   }
+  const responseData = await response.json();
+  return responseData;
 };
 
 export { fetchVideo };
