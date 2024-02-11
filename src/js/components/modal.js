@@ -4,7 +4,6 @@ const modal = document.querySelector('#modal');
 
 const hideModal = () => {
   modal.classList.remove('modal-opened');
-  modal.classList.add('modal-closed');
   modal.innerHTML = '';
 };
 
@@ -17,6 +16,9 @@ const createModal = (bodyElement) => {
     tagName: 'button',
     className: 'close-btn',
     content: 'X',
+    attributes: {
+      'aria-label': 'Close modal',
+    },
   });
 
   closeButton.addEventListener('click', hideModal);
@@ -34,7 +36,6 @@ const createModal = (bodyElement) => {
 
 const showModal = (bodyElement) => {
   const modalContainer = createModal(bodyElement);
-  modal.classList.remove('modal-closed');
   modal.classList.add('modal-opened');
 
   modal.appendChild(modalContainer);

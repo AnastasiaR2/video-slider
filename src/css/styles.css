@@ -1,3 +1,8 @@
+:root {
+  --swiper-navigation-size: 20px !important;
+  --swiper-theme-color: #fff !important;
+}
+
 *,
 *::before,
 *::after {
@@ -37,28 +42,43 @@ button {
 }
 
 .modal-opened {
-  opacity: 1;
-  visibility: visible;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 10;
 }
 
-.modal-closed {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .modal-container {
   height: 100%;
 }
 
-.modal-container > .close-btn {
+.modal-container .close-btn {
   background-color: transparent;
   color: #fff;
   position: absolute;
   top: 20px;
   right: 40px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  background: #d2d2d2;
+}
+
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+  background: rgb(59, 59, 59, 0.5);
+  width: 25px;
+  height: 30px;
+  margin-top: -15px;
+}
+
+.swiper .swiper-button-next {
+  margin-right: -10px;
+  border-radius: 3px 0px 0px 3px;
+}
+
+.swiper .swiper-button-prev {
+  margin-left: -10px;
+  border-radius: 0px 3px 3px 0px;
 }
