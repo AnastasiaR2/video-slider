@@ -32,6 +32,10 @@ button {
   width: 800px;
 }
 
+.swiper-slide {
+  cursor: pointer;
+}
+
 .swiper-slide > iframe {
   width: 800px;
   height: 90vh;

@@ -1,5 +1,7 @@
 import { createSliderElement } from './helpers/create-slider-element.helper.js';
 
+const NUMBER_OF_SLIDES = 8;
+
 const createSlider = ({ selector, slides, options }) => {
   return createSliderElement({
     selector,
@@ -10,7 +12,7 @@ const createSlider = ({ selector, slides, options }) => {
 
 const createImageSlider = ({ pictures }) => {
   const imageSlides = Array.from(
-    { length: 8 },
+    { length: NUMBER_OF_SLIDES },
     () => `<img src="${pictures.base_link}">`,
   );
   return createSlider({
@@ -21,7 +23,10 @@ const createImageSlider = ({ pictures }) => {
 };
 
 const createVideoSlider = ({ embed }) => {
-  const videoSlides = Array.from({ length: 8 }, () => embed.html);
+  const videoSlides = Array.from(
+    { length: NUMBER_OF_SLIDES },
+    () => embed.html,
+  );
   return createSlider({
     selector: 'video-slider',
     slides: videoSlides,
